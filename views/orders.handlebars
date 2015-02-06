@@ -1,0 +1,11 @@
+<h1>{{message}}</h1>
+<ul>
+  {{#each orders}}
+  <li>{{name}}:
+    <ul>
+      <li>order(s): {{#each orders}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</li>
+      <li>totalCost: {{cost}}</li>
+    </ul>
+  </li>
+  {{/each}}
+</ul>
