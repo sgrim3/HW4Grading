@@ -42,6 +42,9 @@ app.get('/kitchen', orders.show);
 //hidden ones for AJAX
 app.post("/ingredients/add", ingredients.add);
 app.post("/order/add", orders.add);
+app.post("/kitchen/delete", orders.remove);
+app.post("/ingredients/edit", ingredients.edit);
+app.post("/ingredients/outOfStock", ingredients.outOfStock);
 
 mongoose.connect(mongoURI);
 

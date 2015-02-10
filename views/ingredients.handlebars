@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Ingredients</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-</head>
-<body>
-    <div id="result">
-	<form id="ingredients-form" action="#">
-		<label for="ingredientName">Ingredient Name *</label>
-        <input id="ingredientName" name="ingredientName1" type="text" class="required">
+<div id="editForm">
+<form id="ingredients-form" action="#">
+	<label for="ingredientName">Ingredient Name *</label>
+    <input id="ingredientName" name="ingredientName1" type="text" class="required">
 
-		<label for="ingredientPrice">Ingredient Price *</label>
-        <input id="ingredientPrice" name="ingredientPrice1" type="text" class="required">
-        <input type="submit" id="submit" value="Submit" />
+	<label for="ingredientPrice">Ingredient Price *</label>
+    <input id="ingredientPrice" name="ingredientPrice1" type="text" class="required">
+    <input type="submit" id="submit" value="Submit" />
 
-    </form>
-    <ul> {{#each ingredients}}
-        <li>{{title}}:  {{price}}          <input type="button" id="edit" value="Edit"/></li>
-    </ul>
-    {{/each}}
-    </div>
-</body>
-<script type="text/javascript" src="javascripts/ingredients.js"></script>
-</html>
+</form>
+</div>
+<div id="ingredient-list">
+    {{> list}}
+</div>

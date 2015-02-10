@@ -24,19 +24,45 @@ orders.show = function(req, res) {
 
 //sets up order form for orders route
 orders.orderForm = function (req, res) {
+	Ingredient.find(function (err, ingredients) {
 		res.render ("orders.handlebars", {
-		ingredients: ingredients
-	});
+			ingredients: ingredients
+		});
+	})
 }
+
+
+//removing an order from the list
+orders.remove = function (req, res) {
+
+	//find one with the name passed from kichen.js and remove it
+	Order.findOneAndRemove({'name' : req.body.nameID}, 
+		function (err,order) {
+			if (err) {
+				return console.error(err)
+			}
+			if (!orders.length) {
+				res.send ("There are no more orders");
+			}
+			else {
+
+				//send back to kitchen
+				res.render("kitchen", {
+					orders: orders
+				})
+			}
+		}
+	)
+};
 
 //create new order- is called in post request
 orders.add = function (req, res) {
 	var name = req.body.orderName;
 	var totalCost = 0;
 	//TODO- this cost should probs be in jquery bc it needs to dynamically update
-	for (var i=0;i<req.body.checkedIngredients.length;i++ ) {
-		totalCost += req.body.checkedIngredients[i].price;
-	}
+	// for (var i=0;i<req.body.checkedIngredients.length;i++ ) {
+	// 	totalCost += req.body.checkedIngredients[i].price;
+	// }
 	var orderObj = new Order({
     	name: name,
     	totalCost: totalCost,
@@ -83,6 +109,8 @@ orders.add = function (req, res) {
  		res.send("New order was placed")
 	})
 };
+
+
 
 module.exports = orders;
 

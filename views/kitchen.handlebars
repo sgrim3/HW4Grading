@@ -9,7 +9,7 @@
     <div id="result">
 
     <ul> {{#each orders}}
-        <li>{{name}}:  {{ingredients}}          <input type="button" id="complete" value="Complete"/></li>
+        <li>{{name}}:  {{ingredients}}          <input type="button" id="complete" name={{name}} value="Complete"/></li>
     </ul>
     {{/each}}
     </div>

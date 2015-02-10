@@ -1,8 +1,9 @@
-var $form = $("#ingredients-form");
+var $form = $("#order-form");
 
 //if the submit works
 var onSuccess = function(data, status) {
-  $( ".result" ).html( data );
+  // $( ".result" ).html( data );
+  alert("Your order is on its way!");
 };
 
 //if the submit fails
@@ -29,7 +30,7 @@ $form.submit(function(event) {
   $.post("order/add",{
     orderName: orderName,
     ingredientList: ingredientList
-  });
+  })
     .done(onSuccess)
-    .error(onError);
+    .error(onError)
 });

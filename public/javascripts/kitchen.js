@@ -1,6 +1,6 @@
 //if click is successful
 var onSuccess = function(data, status) {
-  // $( "#result" ).html(data);
+   $( "#result" ).html(data);
   // alert( "Data Loaded: " + data );
 };
 
@@ -10,8 +10,15 @@ var onError = function(data, status) {
   console.log("error", data);
 };
 
-//TODO- again, figure out how to tell what item is associated w clicked button, name "deletedOrder"
+//TODO- 
 $("#complete").click(function() {
-  deletedOrder.remove().exec();
-}).done(onSuccess).error(onError);
+	nameID = $(this).attr("name");
+    deletedOrder.remove().exec();
 
+ //sending post request
+  $.post("kitchen/delete", {
+    nameID: nameID
+  })
+.done(onSuccess)
+.error(onError);
+})
