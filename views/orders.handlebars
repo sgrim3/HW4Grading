@@ -1,11 +1,16 @@
-<h1>{{message}}</h1>
-<ul>
-  {{#each orders}}
-  <li>{{name}}:
-    <ul>
-      <li>order(s): {{#each orders}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</li>
-      <li>totalCost: {{cost}}</li>
+<form id="order-form" action="#">
+	<label for="orderName">Your Name </label>
+    <input id="orderName" name="orderName" type="text">
+
+	<label for="ingredientList">Choose your ingredients </label>
+	{{#each ingredients}}
+	<ul class="ingredient list">
+		<li>
+        	<input id={{this}} name={{this}} type="checkbox">
+        	{{@key}}{{title}}:  ${{price}}
+        </li>
     </ul>
-  </li>
-  {{/each}}
-</ul>
+    {{/each}}
+    <input type="submit" id="submit" value="Submit" />
+    
+</form>

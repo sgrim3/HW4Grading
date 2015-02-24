@@ -10,7 +10,8 @@ var OrderSchema = new Schema({
 var IngredientSchema = new Schema({
     _creator : { type: Schema.ObjectId, ref: 'Order' },
     title: String,
-	price: Number
+	price: Number,
+	outOfStock: Boolean
 });
 
 

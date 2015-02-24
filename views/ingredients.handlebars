@@ -1,0 +1,14 @@
+<div id="editForm">
+<form id="ingredients-form" action="#">
+	<label for="ingredientName">Ingredient Name *</label>
+    <input id="ingredientName" name="ingredientName1" type="text" class="required">
+
+	<label for="ingredientPrice">Ingredient Price *</label>
+    <input id="ingredientPrice" name="ingredientPrice1" type="text" class="required">
+    <input type="submit" id="submit" value="Submit" />
+
+</form>
+</div>
+<div id="ingredient-list">
+    {{> list}}
+</div>

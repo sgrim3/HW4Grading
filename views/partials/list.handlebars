@@ -1,0 +1,9 @@
+<ul> {{#each ingredients}} {{#unless outOfStock}}
+        <li>
+            {{@key}}{{title}}:  ${{price}} 
+            <input type="button" class = "edit" id="{{title}}" value="Edit" name={{title}}/> 
+            <input type="button" class = "outStock" id="{{title}}" value="Out of Stock" name={{title}}/>
+        </li>     
+    {{/unless}}
+    {{/each}}
+</ul>
